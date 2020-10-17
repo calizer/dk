@@ -8,25 +8,25 @@
 # The update operation will not touch this file.
 # """
 
-# import os
+import os
 # 
 # #PATHS
-# CAR_PATH = PACKAGE_PATH = os.path.dirname(os.path.realpath(__file__))
-# DATA_PATH = os.path.join(CAR_PATH, 'data')
-# MODELS_PATH = os.path.join(CAR_PATH, 'models')
+CAR_PATH = PACKAGE_PATH = os.path.dirname(os.path.realpath(__file__))
+DATA_PATH = os.path.join(CAR_PATH, 'data')
+MODELS_PATH = os.path.join(CAR_PATH, 'models')
 # 
 # #VEHICLE
-# DRIVE_LOOP_HZ = 20      # the vehicle loop will pause if faster than this speed.
-# MAX_LOOPS = None        # the vehicle loop can abort after this many iterations, when given a positive integer.
+DRIVE_LOOP_HZ = 20      # the vehicle loop will pause if faster than this speed.
+MAX_LOOPS = None        # the vehicle loop can abort after this many iterations, when given a positive integer.
 # 
 # #CAMERA
-# CAMERA_TYPE = "PICAM"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|D435|MOCK|IMAGE_LIST)
-# IMAGE_W = 160
-# IMAGE_H = 120
-# IMAGE_DEPTH = 3         # default RGB=3, make 1 for mono
-# CAMERA_FRAMERATE = DRIVE_LOOP_HZ
-# CAMERA_VFLIP = False
-# CAMERA_HFLIP = False
+CAMERA_TYPE = "PICAM"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|D435|MOCK|IMAGE_LIST)
+IMAGE_W = 160
+IMAGE_H = 120
+IMAGE_DEPTH = 3         # default RGB=3, make 1 for mono
+CAMERA_FRAMERATE = DRIVE_LOOP_HZ
+CAMERA_VFLIP = False
+CAMERA_HFLIP = False
 # # For CSIC camera - If the camera is mounted in a rotated position, changing the below parameter will correct the output frame orientation
 # CSIC_CAM_GSTREAMER_FLIP_PARM = 0 # (0 => none , 4 => Flip horizontally, 6 => Flip vertically)
 # 
@@ -47,17 +47,22 @@
 # #DC_TWO_WHEEL uses HBridge pwm to control two drive motors, one on the left, and one on the right.
 # #SERVO_HBRIDGE_PWM use ServoBlaster to output pwm control from the PiZero directly to control steering, and HBridge for a drive motor.
 # #PIGPIO_PWM uses Raspberrys internal PWM
-# DRIVE_TRAIN_TYPE = "SERVO_ESC" # SERVO_ESC|DC_STEER_THROTTLE|DC_TWO_WHEEL|SERVO_HBRIDGE_PWM|PIGPIO_PWM|MM1|MOCK
-# 
+DRIVE_TRAIN_TYPE = "L298_SERVO" # SERVO_ESC|DC_STEER_THROTTLE|DC_TWO_WHEEL|SERVO_HBRIDGE_PWM|PIGPIO_PWM|MM1|MOCK
+#
+# L298N
+THROTTLE_IN_PIN1 = 13
+THROTTLE_IN_PIN2 = 11
+THROTTLE_PWM_PIN = 12
+
 # #STEERING
 # STEERING_CHANNEL = 1            #channel on the 9685 pwm board 0-15
 # STEERING_LEFT_PWM = 460         #pwm value for full left steering
 # STEERING_RIGHT_PWM = 290        #pwm value for full right steering
 # 
-# #STEERING FOR PIGPIO_PWM
-# STEERING_PWM_PIN = 13           #Pin numbering according to Broadcom numbers
-# STEERING_PWM_FREQ = 50          #Frequency for PWM
-# STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
+#STEERING FOR PIGPIO_PWM
+STEERING_PWM_PIN = 22           #Pin numbering according to Broadcom numbers
+STEERING_PWM_FREQ = 50          #Frequency for PWM
+STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
 # 
 # #THROTTLE
 # THROTTLE_CHANNEL = 0            #channel on the 9685 pwm board 0-15

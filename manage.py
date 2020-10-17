@@ -500,6 +500,26 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
 
         V.add(steering, inputs=['angle'], threaded=True)
         V.add(throttle, inputs=['throttle'], threaded=True)
+        
+    elif cfg.DRIVE_TRAIN_TYPE == "L298_SERVO":
+        from donkeycar.parts.actuator import L298N_HBridge_DC_Motor, PWMSteering, PWMThrottle, PiGPIO_PWM
+
+        steering_controller = PiGPIO_PWM(cfg.STEERING_PWM_PIN, freq=cfg.STEERING_PWM_FREQ, inverted=cfg.STEERING_PWM_INVERTED)
+        steering = PWMSteering(controller=steering_controller,
+                                        left_pulse=cfg.STEERING_LEFT_PWM, 
+                                        right_pulse=cfg.STEERING_RIGHT_PWM)
+
+        throttle_controller = L298N_HBridge_DC_Motor(cfg.THROTTLE_IN_PIN1, cfg.THROTTLE_IN_PIN2, cfg.THROTTLE_PWM_PIN)
+#         throttle = L298N_HBridge_DC_Motor(cfg.THROTTLE_IN_PIN1, cfg.THROTTLE_IN_PIN2, cfg.THROTTLE_PWM_PIN)
+        throttle = PWMThrottle(controller=throttle_controller,
+                                        max_pulse=cfg.THROTTLE_FORWARD_PWM,
+                                        zero_pulse=cfg.THROTTLE_STOPPED_PWM,
+                                        min_pulse=cfg.THROTTLE_REVERSE_PWM)
+
+        V.add(steering, inputs=['angle'], threaded=True)
+        V.add(throttle, inputs=['throttle'], threaded=True)   
+    
+    
 
 
     elif cfg.DRIVE_TRAIN_TYPE == "DC_STEER_THROTTLE":
