@@ -60,7 +60,7 @@ THROTTLE_PWM_PIN = 12
 # STEERING_RIGHT_PWM = 290        #pwm value for full right steering
 # 
 #STEERING FOR PIGPIO_PWM
-STEERING_PWM_PIN = 22           #Pin numbering according to Broadcom numbers
+STEERING_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
 STEERING_PWM_FREQ = 50          #Frequency for PWM
 STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
 # 
