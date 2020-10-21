@@ -502,19 +502,11 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         V.add(throttle, inputs=['throttle'], threaded=True)
         
     elif cfg.DRIVE_TRAIN_TYPE == "L298_SERVO":
-#         from donkeycar.parts.actuator import PWMSteering, PiGPIO_PWM
-#         steering_controller = PiGPIO_PWM(cfg.STEERING_PWM_PIN, freq=cfg.STEERING_PWM_FREQ, inverted=cfg.STEERING_PWM_INVERTED)
-#         steering = PWMSteering(controller=steering_controller,
-#                                         left_pulse=cfg.STEERING_LEFT_PWM, 
-#                                         right_pulse=cfg.STEERING_RIGHT_PWM)
+        from donkeycar.parts.actuator import PWMSteering, PiGPIO_PWM
 
-        from donkeycar.parts.actuator import ServoBlaster, PWMSteering
-        steering_controller = ServoBlaster(cfg.STEERING_CHANNEL) #really pin
-        #PWM pulse values should be in the range of 100 to 200
-        assert(cfg.STEERING_LEFT_PWM <= 460)
-        assert(cfg.STEERING_RIGHT_PWM <= 290)
+        steering_controller = PiGPIO_PWM(cfg.STEERING_PWM_PIN, freq=cfg.STEERING_PWM_FREQ, inverted=cfg.STEERING_PWM_INVERTED)
         steering = PWMSteering(controller=steering_controller,
-                                        left_pulse=cfg.STEERING_LEFT_PWM,
+                                        left_pulse=cfg.STEERING_LEFT_PWM, 
                                         right_pulse=cfg.STEERING_RIGHT_PWM)
 
         from donkeycar.parts.actuator import L298N_HBridge_DC_Motor

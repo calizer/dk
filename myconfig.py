@@ -55,9 +55,9 @@ THROTTLE_IN_PIN2 = 11
 THROTTLE_PWM_PIN = 12
 
 # #STEERING
-STEERING_CHANNEL = 2            #channel on the 9685 pwm board 0-15
-STEERING_LEFT_PWM = 460         #pwm value for full left steering
-STEERING_RIGHT_PWM = 290        #pwm value for full right steering
+# STEERING_CHANNEL = 1            #channel on the 9685 pwm board 0-15
+# STEERING_LEFT_PWM = 460         #pwm value for full left steering
+# STEERING_RIGHT_PWM = 290        #pwm value for full right steering
 # 
 #STEERING FOR PIGPIO_PWM
 STEERING_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
