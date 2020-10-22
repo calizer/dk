@@ -503,7 +503,13 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         
     elif cfg.DRIVE_TRAIN_TYPE == "L298_SERVO":
 #         from donkeycar.parts.actuator import PWMSteering, PiGPIO_PWM
-#         steering_controller = PiGPIO_PWM(cfg.STEERING_PWM_PIN, freq=cfg.STEERING_PWM_FREQ, inverted=cfg.STEERING_PWM_INVERTED)
+#         steering_controller = PiGPIO_PWM(pin=cfg.STEERING_PWM_PIN, freq=cfg.STEERING_PWM_FREQ, inverted=cfg.STEERING_PWM_INVERTED)
+#         steering = PWMSteering(controller=steering_controller,
+#                                         left_pulse=cfg.STEERING_LEFT_PWM, 
+#                                         right_pulse=cfg.STEERING_RIGHT_PWM)
+
+#         from donkeycar.parts.actuator import RPi_GPIO_Servo
+#         steering = RPi_GPIO_Servo(cfg.STEERING_PWM_PIN)
 #         steering = PWMSteering(controller=steering_controller,
 #                                         left_pulse=cfg.STEERING_LEFT_PWM, 
 #                                         right_pulse=cfg.STEERING_RIGHT_PWM)
@@ -511,8 +517,8 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         from donkeycar.parts.actuator import ServoBlaster, PWMSteering
         steering_controller = ServoBlaster(cfg.STEERING_CHANNEL) #really pin
         #PWM pulse values should be in the range of 100 to 200
-        assert(cfg.STEERING_LEFT_PWM <= 460)
-        assert(cfg.STEERING_RIGHT_PWM <= 290)
+        assert(cfg.STEERING_LEFT_PWM <= 100)
+        assert(cfg.STEERING_RIGHT_PWM <= 300)
         steering = PWMSteering(controller=steering_controller,
                                         left_pulse=cfg.STEERING_LEFT_PWM,
                                         right_pulse=cfg.STEERING_RIGHT_PWM)
