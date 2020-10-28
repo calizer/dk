@@ -51,7 +51,6 @@ DRIVE_TRAIN_TYPE = "L298_SERVO" # SERVO_ESC|DC_STEER_THROTTLE|DC_TWO_WHEEL|SERVO
 #
 # L298N
 THROTTLE_IN_PIN1 = 13
-# THROTTLE_IN_PIN2 = 11
 THROTTLE_IN_PIN2 = 11
 THROTTLE_PWM_PIN = 12
 
@@ -61,7 +60,7 @@ STEERING_LEFT_PWM = 100         #pwm value for full left steering
 STEERING_RIGHT_PWM = 200        #pwm value for full right steering
 # 
 #STEERING FOR PIGPIO_PWM
-STEERING_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
+# STEERING_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
 STEERING_PWM_FREQ = 50          #Frequency for PWM
 STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
 # 
