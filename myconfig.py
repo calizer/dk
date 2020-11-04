@@ -25,8 +25,8 @@ IMAGE_W = 160
 IMAGE_H = 120
 IMAGE_DEPTH = 3         # default RGB=3, make 1 for mono
 CAMERA_FRAMERATE = DRIVE_LOOP_HZ
-CAMERA_VFLIP = False
-CAMERA_HFLIP = False
+CAMERA_VFLIP = True
+CAMERA_HFLIP = True
 # # For CSIC camera - If the camera is mounted in a rotated position, changing the below parameter will correct the output frame orientation
 # CSIC_CAM_GSTREAMER_FLIP_PARM = 0 # (0 => none , 4 => Flip horizontally, 6 => Flip vertically)
 # 
@@ -56,13 +56,13 @@ THROTTLE_PWM_PIN = 32
 
 # #STEERING
 STEERING_CHANNEL = 7            #channel on the 9685 pwm board 0-15
-STEERING_LEFT_PWM = 100         #pwm value for full left steering
-STEERING_RIGHT_PWM = 200        #pwm value for full right steering
+STEERING_LEFT_PWM = 125         #pwm value for full left steering
+STEERING_RIGHT_PWM = 175        #pwm value for full right steering
 # 
 #STEERING FOR PIGPIO_PWM
 # STEERING_PWM_PIN = 18           #Pin numbering according to Broadcom numbers
 # STEERING_PWM_FREQ = 50          #Frequency for PWM
-STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
+STEERING_PWM_INVERTED = True   #If PWM needs to be inverted
 # 
 # #THROTTLE
 # THROTTLE_CHANNEL = 0            #channel on the 9685 pwm board 0-15

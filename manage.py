@@ -517,11 +517,11 @@ def drive(cfg, model_path=None, use_joystick=False, model_type=None, camera_type
         from donkeycar.parts.actuator import ServoBlaster, PWMSteering
         steering_controller = ServoBlaster(cfg.STEERING_CHANNEL) #really pin
         #PWM pulse values should be in the range of 100 to 200
-        assert(cfg.STEERING_LEFT_PWM <= 100)
-        assert(cfg.STEERING_RIGHT_PWM <= 300)
+        assert(cfg.STEERING_LEFT_PWM >= 100)
+        assert(cfg.STEERING_RIGHT_PWM <= 200)
         steering = PWMSteering(controller=steering_controller,
-                                        left_pulse=cfg.STEERING_LEFT_PWM,
-                                        right_pulse=cfg.STEERING_RIGHT_PWM)
+                                        left_pulse=cfg.STEERING_RIGHT_PWM,
+                                        right_pulse=cfg.STEERING_LEFT_PWM)
 
         from donkeycar.parts.actuator import L298N_HBridge_DC_Motor
 #         throttle_controller = L298N_HBridge_DC_Motor(cfg.THROTTLE_IN_PIN1, cfg.THROTTLE_IN_PIN2, cfg.THROTTLE_PWM_PIN)
